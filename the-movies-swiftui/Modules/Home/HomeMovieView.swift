@@ -10,7 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var homeMovieViewModel: HomeMovieViewModel
     @State private var searchText: String = ""
-    @State private var isSearching: Bool = false
+    @EnvironmentObject private var coordinator: Coordinator
+    @State private var isMovieLoaded: Bool = false
     
     var body: some View {
         ZStack {
@@ -18,22 +19,27 @@ struct HomeView: View {
             GeometryReader { geo in
                 VStack {
                     HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                        TextField("Search movies...", text: $searchText)
-                            .textFieldStyle(PlainTextFieldStyle())
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
+                        Spacer()
+                        Button {
+                            coordinator.push(page: .searchMovie)
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.gray).padding(4)
+                        }.buttonStyle(.borderedProminent)
+                            .clipShape(.circle)
+                            .tint(.white)
+                            .foregroundStyle(.black)
                     }
-                    .padding(10)
-                    .background(Color("SecondaryColor"))
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                    .foregroundColor(.black).padding(.vertical, 12)
                     ScrollView(showsIndicators: false){
                         NowPlaying(homeMovieViewModel: homeMovieViewModel)
                             .onAppear {
                                 self.homeMovieViewModel.getNowPlayingMovie(page: 1)
+                            }
+                            .onAppear {
+                                if isMovieLoaded == false {
+                                    self.homeMovieViewModel.getNowPlayingMovie(page: 1)
+                                    self.isMovieLoaded = true
+                                }
                             }
                     }
                 }.padding(10).frame(maxWidth: geo.size.width, maxHeight:  geo.size.height)

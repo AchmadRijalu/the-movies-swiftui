@@ -10,6 +10,7 @@ import SwiftUI
 enum AppPages: Hashable {
     case homeMovie
     case detailMovie(movieId: Int)
+    case searchMovie
 }
 
 enum FullScreenCover: String, Identifiable {
