@@ -10,6 +10,8 @@ import SwiftUI
 class Coordinator: ObservableObject {
     @Published var path: NavigationPath = NavigationPath()
     @Published var fullScreenCover: FullScreenCover?
+    @Published var homeViewModel: HomeMovieViewModel = HomeMovieViewModel()
+    @Published var searchViewModel: SearchMovieViewModel = SearchMovieViewModel()
     
     func push(page: AppPages) {
         path.append(page)
@@ -35,11 +37,12 @@ class Coordinator: ObservableObject {
     func build(page: AppPages) -> some View {
         switch page {
         case .homeMovie:
-            let vm = HomeMovieViewModel()
-            HomeView(homeMovieViewModel: vm)
+            HomeView(homeMovieViewModel: homeViewModel)
         case .detailMovie(let movieId):
             let vm: DetailMovieViewModel = DetailMovieViewModel(movieId: movieId)
             DetailMovieView(detailMovieViewModel: vm)
+        case .searchMovie:
+            SearchMovieView(searchViewModel: searchViewModel)
         }
     }
     
@@ -47,7 +50,7 @@ class Coordinator: ObservableObject {
     func buildCover(cover: FullScreenCover) -> some View {
         switch cover {
         case .searchMovie:
-            SearchMovieView()
+            SearchMovieView(searchViewModel: searchViewModel)
         }
     }
 }

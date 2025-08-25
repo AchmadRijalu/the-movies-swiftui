@@ -5,7 +5,6 @@
 //  Created by Achmad Rijalu on 23/08/25.
 //
 
-
 import SwiftUI
 import Combine
 import Kingfisher
@@ -111,6 +110,4 @@ struct MovieVideoHeaderView: View {
     }
 }
 
-
-#Preview {
-}
+#Preview {}

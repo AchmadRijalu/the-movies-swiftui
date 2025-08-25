@@ -35,7 +35,6 @@ class HomeMovieViewModel: ObservableObject {
                     self.nowPlayingLoadingState = false
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
-                    self.nowPlayingLoadingState = false
                 }
             } receiveValue: { [weak self] movies in
                 self?.movieNowPlayingResultsModel = movies

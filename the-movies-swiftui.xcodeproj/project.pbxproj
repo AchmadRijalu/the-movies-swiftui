@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		777401822E5C4FCE005056EB /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = 777401812E5C4FCE005056EB /* netfox */; };
 		7774FE822E5990DA005056EB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7774FE812E5990DA005056EB /* RealmSwift */; };
 		7774FE852E599100005056EB /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7774FE842E599100005056EB /* SkeletonUI */; };
 		7774FE882E59910F005056EB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7774FE872E59910F005056EB /* Kingfisher */; };
@@ -48,6 +49,7 @@
 			files = (
 				7774FE882E59910F005056EB /* Kingfisher in Frameworks */,
 				7774FE912E59927E005056EB /* Alamofire in Frameworks */,
+				777401822E5C4FCE005056EB /* netfox in Frameworks */,
 				7774FE822E5990DA005056EB /* RealmSwift in Frameworks */,
 				7774FE942E5992A7005056EB /* SwiftyJSON in Frameworks */,
 				7774FE852E599100005056EB /* SkeletonUI in Frameworks */,
@@ -99,6 +101,7 @@
 				7774FE872E59910F005056EB /* Kingfisher */,
 				7774FE902E59927E005056EB /* Alamofire */,
 				7774FE932E5992A7005056EB /* SwiftyJSON */,
+				777401812E5C4FCE005056EB /* netfox */,
 			);
 			productName = "the-movies-swiftui";
 			productReference = 7774FE4C2E598DAB005056EB /* the-movies-swiftui.app */;
@@ -134,6 +137,7 @@
 				7774FE862E59910F005056EB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7774FE8F2E59927E005056EB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7774FE922E5992A7005056EB /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				777401802E5C4FCE005056EB /* XCRemoteSwiftPackageReference "netfox" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7774FE4D2E598DAB005056EB /* Products */;
@@ -369,6 +373,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		777401802E5C4FCE005056EB /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.0;
+			};
+		};
 		7774FE7E2E5990DA005056EB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
@@ -412,6 +424,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		777401812E5C4FCE005056EB /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777401802E5C4FCE005056EB /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
 		7774FE812E5990DA005056EB /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7774FE7E2E5990DA005056EB /* XCRemoteSwiftPackageReference "realm-swift" */;

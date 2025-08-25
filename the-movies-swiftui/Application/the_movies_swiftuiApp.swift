@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import netfox
 
 @main
 struct the_movies_swiftuiApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CoordinatorView().colorScheme(.dark)
+            CoordinatorView().colorScheme(.dark).onAppear {
+                NFX.sharedInstance().start()
+            }
         }
     }
 }
