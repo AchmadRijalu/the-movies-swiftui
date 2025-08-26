@@ -9,15 +9,15 @@ import Combine
 import Alamofire
 import SwiftyJSON
 
-protocol HomeMovieDataSourceProtocol {
+protocol HomeMovieRemoteDataSourceProtocol {
     func getNowPlayingMovies(page: Int) -> AnyPublisher<[MoviesResultResponse], Error>
 }
 
-final class HomeMovieDataSource {
-    static let homeMovieDataSource = HomeMovieDataSource()
+final class HomeMovieRemoteDataSource {
+    static let homeMovieDataSource = HomeMovieRemoteDataSource()
 }
 
-extension HomeMovieDataSource: HomeMovieDataSourceProtocol {
+extension HomeMovieRemoteDataSource: HomeMovieRemoteDataSourceProtocol {
     
     func getNowPlayingMovies(page: Int) -> AnyPublisher<[MoviesResultResponse], Error> {
         let endpoint = Endpoints.Gets.movieNowPlaying(page: page)

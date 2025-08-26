@@ -27,7 +27,7 @@ struct GeneralToolBar: View {
             }
             Text(title)
                 .foregroundStyle(Color("SecondaryColor"))
-                .font(.system(size: 17, weight: .semibold))
+                .font(.system(size: 17, weight: .medium))
         }
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity, maxHeight: 55)

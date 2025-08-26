@@ -12,7 +12,6 @@ class SearchMovieViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     @Published var searchMovieList: [SearchMovieModel] = []
     @Published var querySearch: String = ""
-    @Published var errorMessage: String = ""
     @Published var nowPlayingLoadingState: Bool = false
     private let repository: SearchMovieRepositoryProtocol
     
@@ -23,7 +22,6 @@ class SearchMovieViewModel: ObservableObject {
     
     func fetchSearchMovie(query: String, page: Int = 1) {
         searchMovieList.removeAll()
-        errorMessage = ""
         nowPlayingLoadingState = true
         
         repository.fetchSearchMovies(query: query, page: page)
@@ -35,12 +33,24 @@ class SearchMovieViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.errorMessage = error.localizedDescription
+                    self.presentGeneralError(errorMessage: error.localizedDescription)
                 }
             } receiveValue: { [weak self] searchMovieData in
                 self?.searchMovieList = searchMovieData
             }
             .store(in: &cancellables)
+    }
+    
+    func presentGeneralError(errorMessage: String) {
+         let bottomSheetTransitionDelegate = BottomSheetTransitionDelegate()
+        let sheetVC = APIErrorBottomSheet(image: UIImage(systemName: "exclamationmark.triangle"), title: "Ooopss.", message: errorMessage)
+        
+        sheetVC.modalPresentationStyle = .custom
+        sheetVC.transitioningDelegate = bottomSheetTransitionDelegate
+        
+        if let topVC = UIApplication.shared.topViewController() {
+            topVC.present(sheetVC, animated: true)
+        }
     }
 }
 

@@ -13,9 +13,9 @@ protocol SearchMovieRepositoryProtocol {
 }
 
 final class SearchMovieRepository: NSObject {
-    private let remote: SearchMovieDataSourceProtocol
+    private let remote: SearchMovieRemoteDataSourceProtocol
     
-    init(remote: SearchMovieDataSourceProtocol = SearchMovieDataSource.searchMovieDataSource) {
+    init(remote: SearchMovieRemoteDataSourceProtocol = SearchMovieRemoteDataSource.searchMovieDataSource) {
         self.remote = remote
     }
 }

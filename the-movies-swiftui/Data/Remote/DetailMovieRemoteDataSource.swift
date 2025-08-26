@@ -9,16 +9,16 @@ import Alamofire
 import Combine
 import SwiftyJSON
 
-protocol DetailMovieDataSourceProtocol {
+protocol DetailMovieRemoteDataSourceProtocol {
     func getDetailMovieInfo(movieId: Int) -> AnyPublisher<DetailMovieResponse, Error>
     func getDetailMovieReviews(movieId: Int) -> AnyPublisher<DetailMovieReviewResponse, Error>
 }
 
-class DetailMovieDataSource {
-    static let detailMovieDataSource = DetailMovieDataSource()
+class DetailMovieRemoteDataSource {
+    static let detailMovieDataSource = DetailMovieRemoteDataSource()
 }
 
-extension DetailMovieDataSource: DetailMovieDataSourceProtocol {
+extension DetailMovieRemoteDataSource: DetailMovieRemoteDataSourceProtocol {
     func getDetailMovieInfo(movieId: Int) -> AnyPublisher<DetailMovieResponse, any Error> {
         let endpoint = Endpoints.Gets.movieInfo(movieId: movieId)
         let url = endpoint.url

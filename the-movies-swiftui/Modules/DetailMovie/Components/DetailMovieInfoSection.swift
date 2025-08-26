@@ -131,7 +131,7 @@ struct DetailMovieInfoSection: View {
                 
                 Text(detailMovieViewModel.detailMovieModel?.overview ?? "")
                     .foregroundStyle(Color("SecondaryColor"))
-                    .font(.subheadline)
+                    .font(.subheadline).multilineTextAlignment(.leading)
                     .skeleton(
                         with: detailMovieViewModel.loadingState,
                         animation: .pulse(duration: 0.5, delay: 0.9, speed: 0.5, autoreverses: true),

@@ -9,15 +9,15 @@ import Combine
 import Alamofire
 import SwiftyJSON
 
-protocol SearchMovieDataSourceProtocol {
+protocol SearchMovieRemoteDataSourceProtocol {
     func fetchSearchMovies(query: String, page: Int) -> AnyPublisher<[MoviesResultResponse], Error>
 }
 
-class SearchMovieDataSource {
-    static let searchMovieDataSource = SearchMovieDataSource()
+class SearchMovieRemoteDataSource {
+    static let searchMovieDataSource = SearchMovieRemoteDataSource()
 }
 
-extension SearchMovieDataSource: SearchMovieDataSourceProtocol {
+extension SearchMovieRemoteDataSource: SearchMovieRemoteDataSourceProtocol {
     
     func fetchSearchMovies(query: String, page: Int) -> AnyPublisher<[MoviesResultResponse], any Error> {
         let endpoint = Endpoints.Gets.searchMovie(query: query, page: page)

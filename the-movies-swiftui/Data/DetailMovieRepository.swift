@@ -14,9 +14,9 @@ protocol DetailMovieRepositoryProtocol {
 }
 
 final class DetailMovieRepository: NSObject {
-    private let remote: DetailMovieDataSourceProtocol
+    private let remote: DetailMovieRemoteDataSourceProtocol
     
-    init(remote: DetailMovieDataSourceProtocol = DetailMovieDataSource.detailMovieDataSource) {
+    init(remote: DetailMovieRemoteDataSourceProtocol = DetailMovieRemoteDataSource.detailMovieDataSource) {
         self.remote = remote
     }
 }
@@ -41,6 +41,4 @@ extension DetailMovieRepository: DetailMovieRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
-    
-
 }

@@ -5,11 +5,11 @@
 //  Created by Achmad Rijalu on 23/08/25.
 //
 
-
 import Foundation
 import Combine
 import SwiftUI
 import SkeletonUI
+import UIKit
 
 enum DetailMovieContent: CaseIterable, Identifiable{
     var id: Self {self}
@@ -38,7 +38,6 @@ class DetailMovieViewModel: ObservableObject {
     
     @Published var detailMovieModel: DetailMovieModel?
     @Published var detailMovieReviewModel: [DetailMovieReviewModel]?
-    @Published var errorMessage: String = ""
     @Published var loadingState: Bool = false
     
     func getDetailMovie() {
@@ -48,7 +47,7 @@ class DetailMovieViewModel: ObservableObject {
             case .finished:
                 self.loadingState = false
             case .failure(let error):
-                self.errorMessage = error.localizedDescription
+                self.presentGeneralError(errorMessage: error.localizedDescription)
             }
         } receiveValue: { response in
             self.detailMovieModel = response
@@ -62,12 +61,25 @@ class DetailMovieViewModel: ObservableObject {
             case .finished:
                 self.loadingState = false
             case .failure(let error):
-                self.errorMessage = error.localizedDescription
+                self.presentGeneralError(errorMessage: error.localizedDescription)
             }
         } receiveValue: { response in
             self.detailMovieReviewModel = response
         }.store(in: &cancellables)
     }
+    
+    func presentGeneralError(errorMessage: String) {
+        let bottomSheetTransitionDelegate = BottomSheetTransitionDelegate()
+        let sheetVC = APIErrorBottomSheet(image: UIImage(systemName: "exclamationmark.triangle"), title: "Ooopss.", message: errorMessage)
+        
+        sheetVC.modalPresentationStyle = .custom
+        sheetVC.transitioningDelegate = bottomSheetTransitionDelegate
+        
+        if let topVC = UIApplication.shared.topViewController() {
+            topVC.present(sheetVC, animated: true)
+        }
+    }
+    
 }
 
 extension DetailMovieViewModel {
