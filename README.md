@@ -12,12 +12,13 @@ API From: [TheMovieDB](https://www.themoviedb.org)
 This application was built using:
 
 - SwiftUI
-- - MVVM + Coordinator
+- UIKit
+- MVVM + Coordinator
 - Combine
 - Alamofire  
 - KingFisher  
 - SkeletonUI    
-- Realm
+- RealmSwift
 
 ---
 
@@ -26,13 +27,19 @@ This application was built using:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/AchmadRijalu/the-movies-swiftui
+   
 2. **Open the project in Xcode**
    ```bash
    open the-movies-swiftui.xcodeproj
+   
 3. **Select the target device**  
    Choose either a **Simulator** or a **physical device**.
-4. **Build & run**  
-   Press **Cmd + R** in Xcode
+
+4. **Build & Run**  
+   Press **Cmd + R** in Xcode.
+
+5. **Download ZIP from this repository**  
+   Click the **Code** button at the top of the repo and select **Download ZIP**.
 
 
 ## 📋 Requirements
@@ -42,20 +49,17 @@ This application was built using:
 
 ---
 
-## 📱 Screenshots
-
 ### Main Screen
-![Main Screen](https://github.com/user-attachments/assets/44082690-0a12-4cac-a29d-9ac067198bf8)
+<img src="https://github.com/user-attachments/assets/44082690-0a12-4cac-a29d-9ac067198bf8" width="300"/>
 
 ### Movie Info Screen
-![Movie Info Screen](https://github.com/user-attachments/assets/bee1ac1e-f26b-489e-8a28-c952181f7cfc)
+<img src="https://github.com/user-attachments/assets/bee1ac1e-f26b-489e-8a28-c952181f7cfc" width="300"/>
 
 ### Search Screen
-![Search Screen](https://github.com/user-attachments/assets/1c1a809d-6063-49dd-88ba-1df8e9d633fe)
+<img src="https://github.com/user-attachments/assets/1c1a809d-6063-49dd-88ba-1df8e9d633fe" width="300"/>
 
 ### Offline Mode
-![Offline Mode](https://github.com/user-attachments/assets/3a9d6e78-f7f2-42aa-bf90-a3c8bed2e7d0)
+<img src="https://github.com/user-attachments/assets/3a9d6e78-f7f2-42aa-bf90-a3c8bed2e7d0" width="300"/>
 
 ### Handled Negative Case
-![Negative Case](https://github.com/user-attachments/assets/c3855db3-9204-4ee4-9eed-98c7e3fd341d)
-
+<img src="https://github.com/user-attachments/assets/c3855db3-9204-4ee4-9eed-98c7e3fd341d" width="300"/>
