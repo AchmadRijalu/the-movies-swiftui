@@ -70,7 +70,7 @@ struct HomeMovieListItem: View {
                 } else {
                     Text(movieTitle ?? "")
                         .font(.system(size: 14, weight: .medium))
-                        .foregroundStyle(Color("WhiteColor"))
+                        .foregroundStyle(.white)
                         .lineLimit(1)
                         .padding(.leading, 8)
                 }
