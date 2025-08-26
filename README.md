@@ -38,8 +38,9 @@ This application was built using:
 4. **Build & Run**  
    Press **Cmd + R** in Xcode.
 
+**Alternative:**  
 5. **Download ZIP from this repository**  
-   Click the **Code** button at the top of the repo and select **Download ZIP**.
+   Click the **Code** button at the top of the repo and select **Download ZIP**, then open the project in Xcode.
 
 
 ## 📋 Requirements
